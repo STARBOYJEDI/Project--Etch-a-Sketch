@@ -10,16 +10,6 @@ grid.style.border = '3px solid black';
 grid.style.padding = '1rem';
 document.body.appendChild(grid);
 
-// Function to generate random color
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
 for (let i = 0; i < gridSize * gridSize; i++) {
     const square = document.createElement('div');
     square.style.width = `${squareSize}px`;
@@ -28,10 +18,15 @@ for (let i = 0; i < gridSize * gridSize; i++) {
     square.style.border = '1px solid #333';
     square.style.boxSizing = 'border-box'; // Include border in size calculation
 
-    // Add random color on hover
-    square.addEventListener('mouseenter', () => {
-        square.style.backgroundColor = getRandomColor();
-    });
+    let interactions = 0; // Track how many times hovered
 
+    square.addEventListener('mouseenter', () => {
+        interactions++;
+        if (interactions > 10) interactions = 10; // Cap at 10 (fully black)
+
+        // Darken by 10% each time (max 10 times = black)
+        const brightness = 255 - (interactions * 25.5);
+        square.style.backgroundColor = `rgb(${brightness}, ${brightness}, ${brightness})`;
+    });
     grid.appendChild(square);
 }
