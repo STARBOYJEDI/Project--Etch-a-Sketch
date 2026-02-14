@@ -1,2 +1,2 @@
-#Project: Etch-A-Sketch
-##Created a 16x16 grid that displays different colours whenever the mouse is hovered above the grid.
+# Project: Etch-A-Sketch
+## Created a 16x16 grid that displays different colours whenever the mouse is hovered above the grid.
