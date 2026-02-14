@@ -69,9 +69,12 @@ function createGrid(size) {
         }
     });
 
+    // 1 event listener for the entire grid
+    // Uses event bubbling - events on children bubble up to parent
+    // mouseover bubbles up (works with event delegation)
     grid.addEventListener('mouseover', (e) => {
         if (isMouseDown && e.target !== grid) {
-            darkenSquare(e.target);
+            darkenSquare(e.target); // tells which square was hovered
         }
     });
 }
@@ -125,6 +128,7 @@ resetBtn.addEventListener('click', () => {
     const squares = document.querySelectorAll('#grid div');
     squares.forEach(square => {
         square.style.backgroundColor = 'rgb(255, 255, 255)';
+        square.dataset.interactions = '0'; // Stores data in the element itself
     });
 });
 
