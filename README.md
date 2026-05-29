@@ -24,4 +24,3 @@
 # Author information
 ## Mbuso Mabuza
 ## Email: mbusomabuza99@gmail.com
-## LinkedIn profile: https://www.linkedin.com/in/mbuso-mabuza-05851530a/
